@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import BlinkingLabel
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var label: BlinkingLabel!
+    private var isBlinking = false
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,5 +23,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func toggle(_ sender: Any) {
+        if isBlinking {
+            label.stopBlinking()
+        } else {
+            label.startBlinking()
+        }
+        isBlinking = !isBlinking
+    }
 }
 
